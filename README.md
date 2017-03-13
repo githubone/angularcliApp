@@ -1,3 +1,9 @@
+
+
+Mave references
+
+https://github.com/shlomiassaf/angular2-modal/blob/master/QUICKTHROUGH.md
+
 # AngularcliApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.1.
