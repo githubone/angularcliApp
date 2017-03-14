@@ -16,6 +16,8 @@ import { Routing } from './app.routes';
 import { VideolistComponent } from './videos/videolist/videolist.component';
 import { VideodetailComponent } from './videos/videodetail/videodetail.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { CustommodalwizardComponent } from './custommodalwizard/custommodalwizard.component';
+import { CustomModal } from './custommodal/custommodal.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
     VideoComponent,
     VideolistComponent,
     VideodetailComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    CustommodalwizardComponent,
+    CustomModal
   ],
   imports: [
     BrowserModule,
@@ -35,6 +39,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     ModalModule.forRoot(),
     BootstrapModalModule
   ],
+
+  entryComponents: [CustomModal],
   providers: [VideoService, LoadingService],
   bootstrap: [AppComponent]
 })

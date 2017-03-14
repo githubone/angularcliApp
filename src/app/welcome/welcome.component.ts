@@ -16,11 +16,11 @@ export class WelcomeComponent implements OnInit {
   }
 
   ngOnInit() {
-       this.showModal();
+       //this.showModal();
        this.loadingService.publishLoadingCommand(true);
 
        setTimeout(()=> {
-          alert('times up')
+          //alert('times up')
           this.loadingService.publishLoadingCommand(false);
        }, 1000)
   }
