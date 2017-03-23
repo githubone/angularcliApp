@@ -33,8 +33,10 @@ export class CustomModal implements CloseGuard, ModalComponent<CustomModalContex
   }
 
   login(){
+      console.log(this.context);
       this.dialog.close();
-      this.router.navigateByUrl('/videoslist');
+      //this.router.navigateByUrl('/videoslist');
+      this.router.navigateByUrl('/login');
   }
 
   onKeyUp(value) {

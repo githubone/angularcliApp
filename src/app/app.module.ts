@@ -18,6 +18,7 @@ import { VideodetailComponent } from './videos/videodetail/videodetail.component
 import { WelcomeComponent } from './welcome/welcome.component';
 import { CustommodalwizardComponent } from './custommodalwizard/custommodalwizard.component';
 import { CustomModal } from './custommodal/custommodal.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CustomModal } from './custommodal/custommodal.component';
     VideodetailComponent,
     WelcomeComponent,
     CustommodalwizardComponent,
-    CustomModal
+    CustomModal,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
