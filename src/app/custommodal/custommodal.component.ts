@@ -16,7 +16,7 @@ export class CustomModalContext extends BSModalContext {
   //TODO: [ngClass] here on purpose, no real use, just to show how to workaround ng2 issue #4330.
   // Remove when solved.
   /* tslint:disable */ 
-  templateUrl: './loginmodal.component.tpl.html'
+  templateUrl: './custommodal.component.tpl.html'
 })
 
 export class CustomModal implements CloseGuard, ModalComponent<CustomModalContext> {
@@ -35,8 +35,9 @@ export class CustomModal implements CloseGuard, ModalComponent<CustomModalContex
   login(){
       console.log(this.context);
       this.dialog.close();
-      //this.router.navigateByUrl('/videoslist');
-      this.router.navigateByUrl('/login');
+     // this.router.navigateByUrl('/videoslist');
+      ///this.router.navigateByUrl('/videoslist');
+      this.router.navigateByUrl('/welcome');
   }
 
   onKeyUp(value) {

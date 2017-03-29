@@ -1,0 +1,39 @@
+
+<div class=" custom-modal-container">
+    <div class="container">
+        <form class="form-signin">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="inputEmail" value={{context.userName}} class="form-control" placeholder="Email address" required=""
+                autofocus="">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" value={{context.password}} id="inputPassword" class="form-control" placeholder="Password" required="">
+            <div class="checkbox">
+                <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+            </div>
+            <!--<button class="btn btn-lg btn-primary btn-block" (click)="login()" type="submit">Sign in</button>-->
+            <button  (click)="login()" type="submit" class="btn-u btn-u-default btn-u-sm btn-block">Sign in</button>
+        </form>
+    </div>
+</div>
+<!--<login-form></login-form>-->
+
+ <!--<div class="container-fluid custom-modal-container">
+             <div class="row custom-modal-header">
+                <div class="col-sm-12">
+                     <h1>Login</h1>
+                </div>
+             </div>
+             <div class="row" [ngClass]="{'myclass' : shouldUseMyClass}">
+                 <div class="col-xs-12">
+                     <div class="jumbotron">
+                         <p class="lead">I received an injection of the number <strong>{{context.num1}}</strong> and the number <strong>{{context.num2}}</strong></p>
+                        <span>What is the sum?</span>
+                         <input class="form-control" type="text" #answer (keyup)="onKeyUp(answer.value)" autofocus>
+                          <button class="btn btn-lg btn-primary btn-block" (click)="login()" type="submit">Sign in</button>
+                     </div>
+                 </div>
+            </div>
+        </div>-->

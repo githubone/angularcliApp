@@ -16,7 +16,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   ngOnInit() {
-       this.showModal();
+       //this.showModal();
        this.loadingService.publishLoadingCommand(true);
 
        setTimeout(()=> {

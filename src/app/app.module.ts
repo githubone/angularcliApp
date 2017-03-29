@@ -16,7 +16,7 @@ import { Routing } from './app.routes';
 import { VideolistComponent } from './videos/videolist/videolist.component';
 import { VideodetailComponent } from './videos/videodetail/videodetail.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { CustommodalwizardComponent } from './custommodalwizard/custommodalwizard.component';
+// import { CustommodalwizardComponent } from './custommodalwizard/custommodalwizard.component';
 import { CustomModal } from './custommodal/custommodal.component';
 import { LoginComponent } from './login/login.component';
 
@@ -29,7 +29,7 @@ import { LoginComponent } from './login/login.component';
     VideolistComponent,
     VideodetailComponent,
     WelcomeComponent,
-    CustommodalwizardComponent,
+    //CustommodalwizardComponent,
     CustomModal,
     LoginComponent
   ],
