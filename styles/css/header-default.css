@@ -205,12 +205,12 @@ body.header-fixed-space-default {
 .header .navbar-toggle,
 .header .navbar-toggle:hover,
 .header .navbar-toggle:focus {
-	background: #6B094E;
+	background: #321543;
 	padding: 6px 10px 2px;
 }
 
 .header .navbar-toggle:hover {
-	background: #5fb611 !important;
+	background: #6B094E !important;
 }
 
 /*Navbar Collapse*/
