@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+import { AlertModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -17,7 +18,7 @@ import { VideolistComponent } from './videos/videolist/videolist.component';
 import { VideodetailComponent } from './videos/videodetail/videodetail.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 // import { CustommodalwizardComponent } from './custommodalwizard/custommodalwizard.component';
-import { CustomModal } from './custommodal/custommodal.component';
+import { CustomModal } from './customloginmodal/customloginmodal.component';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
@@ -39,7 +40,8 @@ import { LoginComponent } from './login/login.component';
     HttpModule,
     Routing,
     ModalModule.forRoot(),
-    BootstrapModalModule
+    BootstrapModalModule,
+    AlertModule.forRoot()
   ],
 
   entryComponents: [CustomModal],

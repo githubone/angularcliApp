@@ -4,7 +4,7 @@ import { VideoService } from './provider/video.service';
 import { Modal  } from 'angular2-modal/plugins/bootstrap';
 import { Router } from '@angular/router';
 import { Overlay,overlayConfigFactory  } from 'angular2-modal';
-import { CustomModal } from './custommodal/custommodal.component';
+import { CustomModal } from './customloginmodal/customloginmodal.component';
 
 @Component({
   selector: 'app-root',

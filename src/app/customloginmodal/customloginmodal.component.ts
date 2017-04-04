@@ -12,11 +12,11 @@ export class CustomModalContext extends BSModalContext {
 
 @Component({
  selector: 'modal-content',
-   styleUrls: ['./custommodal.component.css'],
+   styleUrls: ['./customloginmodal.component.css'],
   //TODO: [ngClass] here on purpose, no real use, just to show how to workaround ng2 issue #4330.
   // Remove when solved.
   /* tslint:disable */ 
-  templateUrl: './custommodal.component.tpl.html'
+  templateUrl: './customloginmodal.component.html'
 })
 
 export class CustomModal implements CloseGuard, ModalComponent<CustomModalContext> {
