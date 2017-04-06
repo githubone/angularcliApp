@@ -21,6 +21,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { CustomModal } from './customloginmodal/customloginmodal.component';
 import { LoginComponent } from './login/login.component';
 
+import { LayoutComponent } from './layout/layout.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import { LoginComponent } from './login/login.component';
     WelcomeComponent,
     //CustommodalwizardComponent,
     CustomModal,
-    LoginComponent
+    LoginComponent,
+
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
