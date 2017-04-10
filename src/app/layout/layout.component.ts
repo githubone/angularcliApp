@@ -12,12 +12,11 @@ export class LayoutComponent implements OnInit {
 
   constructor(private router:Router) { 
     this.menus.push(
-      new LayoutModel("TV!!", "fa fa-bar-chart-o", "/videoslists"),
-      new LayoutModel("Music", "fa fa-group","/videoslists"),
-      new LayoutModel("Comedy", "fa fa-cubes", "/videoslists"),
-      new LayoutModel("Documentary", "fa fa-comments ","/videoslists"));
+      new LayoutModel("TV!!", "fa fa-bar-chart-o", "/videos"),
+      new LayoutModel("Music", "fa fa-group","/videoslist"),
+      new LayoutModel("Comedy", "fa fa-cubes", "/videos"),
+      new LayoutModel("Documentary", "fa fa-comments ","/videoslist"));
     }
-
   ngOnInit() {
   }
   
