@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { LoadingService } from '../../provider/loading.service';
 import { VideoService } from '../../provider/video.service';
+import { VideoModel } from '../shared/video.model';
+import {Router} from '@angular/router';
+import * as _ from 'lodash';
 
 
 @Component({
@@ -10,8 +13,8 @@ import { VideoService } from '../../provider/video.service';
   
 })
 export class VideolistComponent implements OnInit {
-
-  constructor(private loadingService:LoadingService, private videoService: VideoService) { }
+  videos: any[] = [];
+  constructor(private loadingService:LoadingService, private videoService: VideoService, private router: Router) { }
   ngOnInit() {
     // remove loadding notification set on app page
     this.loadingService.publishLoadingCommand(false)
@@ -20,9 +23,27 @@ export class VideolistComponent implements OnInit {
 
   getVideosAsync(){
     this.videoService.get("/assets/data/videos.json")
-      .subscribe((data)=> {
-        console.log(data);
+      .subscribe((data:any)=> {
+        this.mappedVideos(data);
       })
 
+  }
+
+  mappedVideos(videosData:any[] ){
+    this.videos = videosData;
+    let cloneObj = _.cloneDeep(this.videos);
+
+    _.map(cloneObj, function(video) {
+
+    })
+    
+  }
+
+  clone(): any{
+    
+  }
+
+  watchVideo(video:any) {
+    this.router.navigateByUrl("/videodetail");
   }
 }
