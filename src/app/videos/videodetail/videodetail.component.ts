@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingService } from '../../provider/loading.service';
 
 @Component({
   selector: 'app-videodetail',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideodetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loadingService: LoadingService) { }
 
   ngOnInit() {
+        //this.showModal();
+       // this.loadingService.publishLoadingCommand(false);
   }
 
 }

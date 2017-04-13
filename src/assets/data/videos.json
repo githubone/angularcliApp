@@ -4,6 +4,7 @@
    "Comment": "Top Gear .......",
    "EstimatedHours": 1,
    "VideoType": 1,
+   "VideoTypeName" : "",
    "Name": "topgear.mp4",
    "Poster":"topgear.jpg",
    "Thumbnail": "topgeartn.jpg"
@@ -13,6 +14,7 @@
    "Comment": "Adele at BBC ......",
    "EstimatedHours": 2,
     "VideoType": 1,
+    "VideoTypeName" : "",
     "Name": "adeleatbbc.mp4",
    "Poster":"adeleatbbc.jpg",
     "Thumbnail": "adeleatbbctn.jpg"

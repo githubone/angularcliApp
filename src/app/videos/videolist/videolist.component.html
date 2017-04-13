@@ -7,21 +7,21 @@
 											<th>Name</th>
 											<!--<th class="hidden-sm">Type</th>-->
 											<th>Subject</th>
-											<th>Duration</th>
+											<th></th>
 											<!--<th style="width: 100px;">Status</th>-->
-											<th>Contacts</th>
+											<th></th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr *ngFor="let video of videos">
 											<td>
-												<a href="#" (click)="watchVideo(video)" >{{video.Name}}</a>
+												<a routerLink="/videodetail" >{{video.Subject}}</a>
 											</td>
-											<td class="td-width">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor arcu.</td>
+											<td class="td-width">{{video.Comment}}</td>
 											<td>
 												<div class="m-marker">
-													<a href="#"><i class="color-green fa fa-map-marker"></i></a>
-													<a href="#" class="display-b">{{video.Subject}}</a>
+													<!--<a href="#"><i class="color-green fa fa-map-marker"></i></a>-->
+													<a href="#" class="display-b">{{video.VideoTypeName}}</a>
 													<!--<a href="#">Palo Alto</a>-->
 												</div>
 											<!--</td>
@@ -33,8 +33,8 @@
 											</td>-->
 											<!--<td><button class="btn-u btn-u-red btn-block btn-u-xs"><i class="fa fa-sort-amount-desc margin-right-5"></i></button></td>-->
 											<td>
-												<span>1(123) 456</span>
-												<span><a href="#"> </a>{{video.Poster}}</span>
+											<img class="videoThumbnail" src="{{video.Thumbnail}}" alt="">
+												<!--<span><a href="#"> </a>{{video.VideoTypeName}}</span>-->
 											</td>
 										</tr>
 									
