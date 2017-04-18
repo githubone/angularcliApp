@@ -8,4 +8,6 @@ export class VideoModel {
     Thumbnail:string;
     VideoType: number;
     isFavourite: boolean;
+    Source: string;
+    Id: number;
 }

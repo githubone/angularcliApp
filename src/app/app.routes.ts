@@ -9,7 +9,7 @@ const routes: Routes = [
     {path:'welcome', component: WelcomeComponent},
     {path:'video', component: VideoComponent},
     {path:'videoslist', component: VideolistComponent},
-    {path:'videodetail', component: VideodetailComponent},
+    {path:'videodetail/:id', component: VideodetailComponent},
     {path: 'login', component: LoginComponent},
     {path: '',  redirectTo: 'welcome', pathMatch: 'full'},
 ];

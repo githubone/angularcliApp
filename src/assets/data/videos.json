@@ -1,5 +1,6 @@
 [
 {
+   "Id": 1,
    "Subject": "Top Gear",
    "Comment": "Top Gear .......",
    "EstimatedHours": 1,
@@ -7,9 +8,11 @@
    "VideoTypeName" : "",
    "Name": "topgear.mp4",
    "Poster":"topgear.jpg",
-   "Thumbnail": "topgeartn.jpg"
+   "Thumbnail": "topgeartn.jpg",
+   "Source" : "topgear.mp4"
 },
 {
+   "Id": 2,
    "Subject": "Adele at the BBC",
    "Comment": "Adele at BBC ......",
    "EstimatedHours": 2,
@@ -17,7 +20,8 @@
     "VideoTypeName" : "",
     "Name": "adeleatbbc.mp4",
    "Poster":"adeleatbbc.jpg",
-    "Thumbnail": "adeleatbbctn.jpg"
+    "Thumbnail": "adeleatbbctn.jpg",
+    "Source": "adeleatbbc.mp4"
 }
 
 ]

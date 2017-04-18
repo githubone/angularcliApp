@@ -15,7 +15,7 @@
 									<tbody>
 										<tr *ngFor="let video of videos">
 											<td>
-												<a routerLink="/videodetail" >{{video.Subject}}</a>
+												<a [routerLink]="['/videodetail',video.Id]" >{{video.Subject}}</a>
 											</td>
 											<td class="td-width">{{video.Comment}}</td>
 											<td>

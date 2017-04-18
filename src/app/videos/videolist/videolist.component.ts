@@ -39,6 +39,7 @@ export class VideolistComponent implements OnInit {
         // to do : mapped image location to poster property to display on web page
         debugger;
         video.Thumbnail = "assets/img/video/" + video.Thumbnail;
+        video.Source = "assets/video/" + video.Source;
         console.log(VideoType[video.VideoType]);
         video.VideoTypeName = VideoType[video.VideoType];
     })

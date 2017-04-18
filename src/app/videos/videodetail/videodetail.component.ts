@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingService } from '../../provider/loading.service';
+import { ActivatedRoute} from '@angular/router';
+import { VideoService } from '../../provider/video.service';
+import { VideoModel} from '../shared/video.model';
 
 @Component({
   selector: 'app-videodetail',
@@ -7,12 +10,40 @@ import { LoadingService } from '../../provider/loading.service';
   styleUrls: ['./videodetail.component.css']
 })
 export class VideodetailComponent implements OnInit {
+  currentVideo:VideoModel;
 
-  constructor(private loadingService: LoadingService) { }
+  constructor(private loadingService: LoadingService, 
+              private route: ActivatedRoute,
+              private videoService: VideoService
+              ) { }
 
   ngOnInit() {
+        this.route.params.subscribe(params=> {
+            console.log(params['id']);
+            let videoId = params['id'];
+            this.getVideoByIdAsync(videoId);
+
+        });
         //this.showModal();
        // this.loadingService.publishLoadingCommand(false);
+  }
+
+  getVideoByIdAsync(videoId:string) {
+      this.videoService.getById("/assets/data/videos.json", videoId)
+          .subscribe((video:VideoModel)=> {
+              this.mappedVideo(video);
+          });
+  }
+
+  mappedVideo(video:VideoModel){
+      if(video) {
+            video.Thumbnail = "assets/img/video/" + video.Thumbnail;
+            video.Poster = "assets/img/video/" + video.Thumbnail;
+            video.Source = "assets/video/" + video.Source;
+            this.currentVideo = video;
+      } else {
+        console.log("video does not exists");
+      }
   }
 
 }

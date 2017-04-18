@@ -22,4 +22,14 @@ export class VideoService implements OnInit {
     })
     
   }
+
+  getById(serviceUrl:string, videoId: string){
+     return this._http.get(serviceUrl)
+       .map((res:Response)=> res.json())
+       .filter((data)=> data.Id == parseInt(videoId))
+       .catch((err)=> {
+      console.log(err);
+      return Rx.Observable.empty();
+    })
+  }
 }
