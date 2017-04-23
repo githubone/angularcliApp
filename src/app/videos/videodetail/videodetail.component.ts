@@ -29,16 +29,22 @@ export class VideodetailComponent implements OnInit {
   }
 
   getVideoByIdAsync(videoId:string) {
-      this.videoService.getById("/assets/data/videos.json", videoId)
-          .subscribe((video:VideoModel)=> {
-              this.mappedVideo(video);
-          });
+      this.videoService.getById("assets/data/videos.json", videoId)
+          .subscribe((video)=> {
+              this.mappedVideo(video[0]);
+          },
+          (err)=> {
+            console.log(err);
+          }
+          )
+          
   }
 
   mappedVideo(video:VideoModel){
       if(video) {
+            let poster = video.Poster;
             video.Thumbnail = "assets/img/video/" + video.Thumbnail;
-            video.Poster = "assets/img/video/" + video.Thumbnail;
+            video.Poster = "assets/img/video/" + poster;
             video.Source = "assets/video/" + video.Source;
             this.currentVideo = video;
       } else {
