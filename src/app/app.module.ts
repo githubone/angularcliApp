@@ -22,12 +22,13 @@ import { CustomModal } from './customloginmodal/customloginmodal.component';
 import { LoginComponent } from './login/login.component';
 
 import { LayoutComponent } from './layout/layout.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
+    HeaderComponent,
     AppComponent,
     FooterComponent,
-    HeaderComponent,
     VideoComponent,
     VideolistComponent,
     VideodetailComponent,
@@ -35,8 +36,8 @@ import { LayoutComponent } from './layout/layout.component';
     //CustommodalwizardComponent,
     CustomModal,
     LoginComponent,
-
-    LayoutComponent
+    LayoutComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

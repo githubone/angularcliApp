@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { LoadingService } from '../../provider/loading.service';
+import { VideoService } from '../../provider/video.service';
 import { VideodetailComponent } from './videodetail.component';
+import { ActivatedRoute} from '@angular/router';
+import { HttpModule } from '@angular/http';
+import * as Rx from 'rxjs/Rx';
 
 describe('VideodetailComponent', () => {
   let component: VideodetailComponent;
@@ -8,7 +12,15 @@ describe('VideodetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VideodetailComponent ]
+      declarations: [ VideodetailComponent ],
+      
+      providers: [LoadingService,VideoService,
+      {
+        provide: ActivatedRoute, useValue: { 'params': Rx.Observable.from([{ 'id': 1 }]) }
+      }],
+
+      imports: [HttpModule]
+      
     })
     .compileComponents();
   }));

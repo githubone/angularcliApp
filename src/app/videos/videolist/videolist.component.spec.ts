@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { VideolistComponent } from './videolist.component';
+import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { LoadingService } from '../../provider/loading.service';
+import { VideoService } from '../../provider/video.service';
+import { HttpModule } from '@angular/http';
 
 describe('VideolistComponent', () => {
   let component: VideolistComponent;
@@ -8,7 +12,9 @@ describe('VideolistComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VideolistComponent ]
+      declarations: [ VideolistComponent ],
+      imports: [RouterModule,RouterTestingModule, HttpModule],
+      providers: [LoadingService,VideoService]
     })
     .compileComponents();
   }));
