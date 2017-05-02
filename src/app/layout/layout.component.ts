@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LayoutModel } from './layout.model';
 import { Router } from '@angular/router';
+import { VideoType } from '../videos/shared/videotype';
 
 @Component({
   selector: 'app-layout',
@@ -9,13 +10,12 @@ import { Router } from '@angular/router';
 })
 export class LayoutComponent implements OnInit {
  menus: LayoutModel[] = [];
-
-  constructor(private router:Router) { 
+    constructor(private router:Router) { 
     this.menus.push(
-      new LayoutModel("TV!!", "fa fa-bar-chart-o", "/videos"),
-      new LayoutModel("Music", "fa fa-group","/videoslist"),
-      new LayoutModel("Comedy", "fa fa-cubes", "/videos"),
-      new LayoutModel("Documentary", "fa fa-comments ","/videoslist"));
+      new LayoutModel("TV!!", "fa fa-bar-chart-o", "/videoslist/" + VideoType.tv),
+      new LayoutModel("Music", "fa fa-group","/videoslist/" + VideoType.music),
+      new LayoutModel("Comedy", "fa fa-cubes", "/videoslist/" + VideoType.comedy),
+      new LayoutModel("Documentary", "fa fa-comments ","/videoslist/" + VideoType.documentary));
     }
   ngOnInit() {
   }

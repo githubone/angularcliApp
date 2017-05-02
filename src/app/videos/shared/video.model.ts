@@ -1,6 +1,6 @@
-export class VideoModel {
+interface IVideoModel{  
     VideoTypeName: string;
-    Subject:string;
+    Subject: string;
     Comment: string;
     EstimatedHours: number;
     Name:string;
@@ -11,3 +11,23 @@ export class VideoModel {
     Source: string;
     Id: number;
 }
+
+export class VideoModel implements IVideoModel {  
+    constructor (
+        public VideoTypeName: string, 
+        public Subject: string,
+        public Comment: string,
+        public EstimatedHours: number,
+        public Name:string,
+        public Poster:string,
+        public Thumbnail:string,
+        public VideoType: number,
+        public isFavourite: boolean,
+        public Source: string,
+        public Id: number
+        
+
+        
+        ) {
+    }
+} 

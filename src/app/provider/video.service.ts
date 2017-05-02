@@ -3,14 +3,21 @@ import { Injectable,OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { VideoModel } from '../videos/shared/video.model';
 import * as Rx from 'rxjs/Rx';
-import 'rxjs/operator/map';
+//import 'rxjs/operator/map';
+//import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/switchMap';
 
 @Injectable()
 export class VideoService implements OnInit {
  
   constructor(private _http:Http) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
   get(serviceUrl:string): Rx.Observable<VideoModel[]>{
     return this._http.get(serviceUrl)
@@ -33,5 +40,17 @@ export class VideoService implements OnInit {
   getById(serviceUrl:string, videoId: string){
     return this.get(serviceUrl)
       .map((data)=> data.filter((video) => video.Id === parseInt(videoId)));
+  }
+
+
+  public search(serviceUrl:string,terms: Rx.Observable<string>) {
+     return terms.debounceTime(400)
+     .distinctUntilChanged()
+     .switchMap(term=>this.searchTerms(serviceUrl,term))
+  }
+
+  private searchTerms(serviceUrl:string, term: string) {
+    return this.get(serviceUrl)
+      .map((data)=> data.filter(video => video.Name.includes(term) ))
   }
 }
