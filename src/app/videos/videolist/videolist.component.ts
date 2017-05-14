@@ -20,6 +20,7 @@ export class VideolistComponent implements OnInit {
   searchTerm$ = new Rx.Subject<string>();
   imgPath:string = "assets/img/video/";
   videos: VideoModel[] = [];
+  pageTitle:string = "";
   @ViewChild('tbSearch') tbSearch : ElementRef
 
   constructor(
@@ -33,6 +34,11 @@ export class VideolistComponent implements OnInit {
     
     this.loadingService.publishLoadingCommand(false)
     //this.getVideosAsync();
+    this.setUpSearch();
+    
+  }
+
+  setUpSearch(){
      this.route.params.subscribe((params)=> {
          let vtype:VideoType = params["g"] ? params["g"] : 1;
          this.paramVideoType = vtype;
@@ -44,11 +50,18 @@ export class VideolistComponent implements OnInit {
           this.videoService.search(this.dataServiceUrl, this.searchTerm$)
               .subscribe((data)=> {
               this.mappedVideos(data,this.paramVideoType);
+              this.setPageTitle();
           })
           // trigger search
          this.search("");
     });
-  
+  }
+
+  setPageTitle(){
+     let pageTitle = VideoType[this.paramVideoType] || "";
+     if(pageTitle) {
+       this.pageTitle = pageTitle.toUpperCase();
+     }
      
   }
 

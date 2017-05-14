@@ -1,4 +1,8 @@
 
+h1 {
+    
+  border-LEFT:1px solid #6B094E;
+}
 form {
     border: 3px solid #f1f1f1;
 }
@@ -20,6 +24,16 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
+}
+
+button.btnSearch:hover {
+    background-color: #6B094E;
+    opacity:  1!important;
+    color: #fff; 
+}
+
+button.btnSearch {
+    cursor: default;
 }
 
 button:hover {
