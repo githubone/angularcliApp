@@ -9,3 +9,53 @@ video::-webkit-media-controls-enclosure {
 video::-webkit-media-controls-panel {
     width: calc(100% + 30px); /* Adjust as needed */
 }
+
+.content-md {
+   padding-top: 20px;
+   padding-bottom: 20px; 
+}
+
+.content-sp{
+     padding-top: 20px;
+   padding-bottom: 20px; 
+}
+
+.block-grid {
+    padding: 0px;
+}
+
+.block-grid li {
+list-style:none;
+position: relative;
+-webkit-backface-visibility: hidden; /*For Chrome*/
+}
+.easy-block {
+    position:relative;
+}
+
+.easy-block img {
+    width: 100%;
+}
+
+.easy-block .easy-block-badge{
+    left: 0px;
+	top: 10px;
+	z-index: 1;
+	color: #fff;
+	padding: 4px 10px;
+	position: absolute;
+}
+
+.block-grid-info {
+    padding: 15px;
+    text-align: center;
+    background: #f9f9f9;
+    border-bottom: solid 3px #eee;
+    transition: all 0.4s ease-in-out
+}
+
+.block-grid-info h3 {
+    font-size: 22px;
+    font-weight:200;
+    margin-bottom:10px;
+}
