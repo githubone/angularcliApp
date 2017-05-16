@@ -50,7 +50,18 @@ export class VideoService implements OnInit {
   }
 
   private searchTerms(serviceUrl:string, term: string) {
-    return this.get(serviceUrl)
-      .map((data)=> data.filter(video => video.Name.includes(term) ))
+   return this.get(serviceUrl)
+      .map((data)=> data.filter(video => this.searchWithRegExp(video.Subject,term) ))
   }
+
+  private searchWithRegExp (strInput, strToFind): boolean {
+    let reg = new RegExp(strToFind,'ig');
+    return strInput.match(reg)? true:false;
+  }
+
+  private searchWithIncludes(strInput,strToFind): boolean {
+    return strInput.includes(strToFind);
+  }
+
+  
 }
