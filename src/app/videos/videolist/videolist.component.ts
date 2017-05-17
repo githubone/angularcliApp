@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewContainerRef, ViewChild, ElementRef } from '@angular/core';
 import { LoadingService } from '../../provider/loading.service';
 import { VideoService } from '../../provider/video.service';
 import { VideoModel } from '../shared/video.model';
@@ -8,6 +8,7 @@ import { ActivatedRoute} from '@angular/router';
 import * as _ from 'lodash';
 //import { Subject} from 'rxjs/subject';
 import * as Rx from 'rxjs/Rx';
+import {SpinnerService} from '../../spinner/spinner-service';
 @Component({
   selector: 'app-videolist',
   templateUrl: './videolist.component.html',
@@ -27,15 +28,21 @@ export class VideolistComponent implements OnInit {
     private loadingService:LoadingService, 
     private videoService: VideoService, 
     private router: Router,
-    private route : ActivatedRoute
+    private route : ActivatedRoute,
+    private spinnerService: SpinnerService
     ) { }
   ngOnInit() {
     // remove loadding notification set on app page
     
-    this.loadingService.publishLoadingCommand(false)
+    this.loadingService.publishLoadingCommand(true)
     //this.getVideosAsync();
     this.setUpSearch();
+   
     
+  }
+
+  ngOnDestroy(){
+
   }
 
   setUpSearch(){

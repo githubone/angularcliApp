@@ -27,7 +27,8 @@ export class AssetService implements OnInit {
         .map(res=> {
 
           return new Blob([res["_body"]], {type: res.headers.get("Content-Type")}); 
-        })
+        });
+        
 
     }
 }

@@ -2,9 +2,10 @@ import { Component, AfterViewInit, ViewContainerRef, OnInit} from '@angular/core
 import { LoadingService } from './provider/loading.service';
 import { VideoService } from './provider/video.service';
 import { Modal  } from 'angular2-modal/plugins/bootstrap';
-import { Router } from '@angular/router';
+import { Router,Event } from '@angular/router';
 import { Overlay,overlayConfigFactory  } from 'angular2-modal';
 import { CustomModal } from './customloginmodal/customloginmodal.component';
+import {SpinnerComponent} from './spinner/spinner-component';
 
 @Component({
   selector: 'app-root',

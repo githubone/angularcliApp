@@ -15,6 +15,7 @@ import { VideoComponent } from './videos/video/video.component';
 import { VideoService } from './provider/video.service';
 import { AssetService } from './provider/asset.service';
 import { LoadingService } from './provider/loading.service';
+import {SpinnerService} from './spinner/spinner-service';
 import { Routing } from './app.routes';
 import { VideolistComponent } from './videos/videolist/videolist.component';
 import { VideodetailComponent } from './videos/videodetail/videodetail.component';
@@ -25,6 +26,7 @@ import { LoginComponent } from './login/login.component';
 
 import { LayoutComponent } from './layout/layout.component';
 import { TestComponent } from './test/test.component';
+import {SpinnerComponent} from './spinner/spinner-component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { TestComponent } from './test/test.component';
     CustomModal,
     LoginComponent,
     LayoutComponent,
-    TestComponent
+    TestComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,7 @@ import { TestComponent } from './test/test.component';
   ],
 
   entryComponents: [CustomModal],
-  providers: [VideoService, LoadingService,AssetService],
+  providers: [VideoService, LoadingService,AssetService,SpinnerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
