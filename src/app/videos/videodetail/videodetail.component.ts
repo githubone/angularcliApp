@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingService } from '../../provider/loading.service';
 import { ActivatedRoute} from '@angular/router';
 import { VideoService } from '../../provider/video.service';
+import { AssetService } from '../../provider/asset.service';
 import { VideoModel} from '../shared/video.model';
+import { LocalStorageService } from 'angular-2-local-storage';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-videodetail',
@@ -11,10 +14,14 @@ import { VideoModel} from '../shared/video.model';
 })
 export class VideodetailComponent implements OnInit {
   currentVideo:VideoModel;
+  imgSourceUrl:SafeResourceUrl = "";
 
   constructor(private loadingService: LoadingService, 
               private route: ActivatedRoute,
-              private videoService: VideoService
+              private videoService: VideoService,
+               private localStorageService: LocalStorageService,
+               private assetService:AssetService,
+               private sanitizer: DomSanitizer
               ) { }
 
   ngOnInit() {
@@ -22,6 +29,8 @@ export class VideodetailComponent implements OnInit {
             console.log(params['id']);
             let videoId = params['id'];
             this.getVideoByIdAsync(videoId);
+            this.getAssetAsync("https://mavestore.blob.core.windows.net/testcontainer/adeleatbbctn.jpg");
+            
 
         });
         //this.showModal();
@@ -37,7 +46,17 @@ export class VideodetailComponent implements OnInit {
             console.log(err);
           }
           )
-          
+  }
+
+  getAssetAsync(assetUrl:string){
+      this.assetService.getImage("https://mavestore.blob.core.windows.net/testcontainer/adeleatbbctn.jpg")
+          .subscribe((asset)=> {
+             this.imgSourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(asset))
+          })
+  }
+
+  storeAsset() {
+
   }
 
   mappedVideo(video:VideoModel){

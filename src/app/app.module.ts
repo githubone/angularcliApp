@@ -6,12 +6,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 import { AlertModule } from 'ng2-bootstrap';
+import { LocalStorageModule } from 'angular-2-local-storage';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { VideoComponent } from './videos/video/video.component';
 import { VideoService } from './provider/video.service';
+import { AssetService } from './provider/asset.service';
 import { LoadingService } from './provider/loading.service';
 import { Routing } from './app.routes';
 import { VideolistComponent } from './videos/videolist/videolist.component';
@@ -46,11 +48,15 @@ import { TestComponent } from './test/test.component';
     Routing,
     ModalModule.forRoot(),
     BootstrapModalModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    LocalStorageModule.withConfig({
+            prefix: 'my-app',
+            storageType: 'localStorage'
+        })
   ],
 
   entryComponents: [CustomModal],
-  providers: [VideoService, LoadingService],
+  providers: [VideoService, LoadingService,AssetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
