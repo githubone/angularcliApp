@@ -82,3 +82,21 @@ img.videoThumbnail {
        width: 100%;
     }
 }
+
+
+.brightcove .outer-containing-block { display: block; position: relative; max-width: 100%; }
+
+.brightcove .inner-container-block {
+    padding-top: 56.25%;
+}
+
+.brightcove .brightcove-experience {
+    width: 100%; height: 100%; position: absolute; top: 0px;  bottom: 0px; right: 0px; left: 0px;
+}
+.brightcove .BrightcoveExperience {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

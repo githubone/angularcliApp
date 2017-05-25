@@ -4,9 +4,11 @@ import { Headers,Http, Request,
     RequestMethod, ResponseContentType
 } from '@angular/http';
 
+import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
+
 @Injectable()
 export class AssetService implements OnInit {
-    constructor(private http: Http){
+    constructor(private http: Http, private sessionStorageService: SessionStorageService){
 
     }
     ngOnInit() {
@@ -25,11 +27,24 @@ export class AssetService implements OnInit {
         let reqOptions = new RequestOptions(basicOptions);
         return this.http.get(serviceUrl,basicOptions)
         .map(res=> {
-
-          return new Blob([res["_body"]], {type: res.headers.get("Content-Type")}); 
+            let asset = this.getAsset(serviceUrl);
+            if(asset instanceof Blob) {
+                return asset;
+            } else {
+                var blob = new Blob([res["_body"]], {type: res.headers.get("Content-Type")})
+                this.storeAsset(serviceUrl,blob)
+                return blob;
+            }
+           
         });
         
 
+    }
+    storeAsset(key:string, blob: Blob):void {
+       this.sessionStorageService.store(key, JSON.stringify(blob));
+    }
+    getAsset(key:string): Blob {
+       return JSON.parse(this.sessionStorageService.retrieve(key));
     }
 }
 

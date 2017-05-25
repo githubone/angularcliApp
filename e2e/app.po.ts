@@ -6,6 +6,15 @@ export class AngularcliAppPage {
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('h2.form-signin-heading')).getText();
   }
+
+  getCustomLoginHeaderText() {
+    return element(by.css('form-signin-heading')).getText();
+  }
+
+  getSignInButtonElement() {
+    return element(by.css('.btn-u,.btn-u-default,.btn-u-sm,.btn-block')).getText();
+  }
+
 }

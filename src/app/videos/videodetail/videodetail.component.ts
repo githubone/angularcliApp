@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoadingService } from '../../provider/loading.service';
 import { ActivatedRoute} from '@angular/router';
 import { VideoService } from '../../provider/video.service';
@@ -15,6 +15,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class VideodetailComponent implements OnInit {
   currentVideo:VideoModel;
   imgSourceUrl:SafeResourceUrl = "";
+  @ViewChild('videoPlayer') videoPlayer:any;
 
   constructor(private loadingService: LoadingService, 
               private route: ActivatedRoute,
@@ -69,6 +70,13 @@ export class VideodetailComponent implements OnInit {
       } else {
         console.log("video does not exists");
       }
+  }
+
+  swapVideo() {
+        this.videoPlayer.nativeElement.currentTime = 0;
+        this.currentVideo.Thumbnail = "assets/img/video/" + "adeleatbbc.jpg";
+        this.currentVideo.Poster = "assets/img/video/" + "adeleatbbctn.jpg";
+        this.currentVideo.Source = "assets/video/" + "adeleatbbc.mp4"; 
   }
 
 }

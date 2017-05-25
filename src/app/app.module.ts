@@ -28,6 +28,9 @@ import { LayoutComponent } from './layout/layout.component';
 import { TestComponent } from './test/test.component';
 import {SpinnerComponent} from './spinner/spinner-component';
 
+import {Ng2Webstorage} from 'ngx-webstorage';
+
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -55,7 +58,8 @@ import {SpinnerComponent} from './spinner/spinner-component';
     LocalStorageModule.withConfig({
             prefix: 'my-app',
             storageType: 'localStorage'
-        })
+        }),
+        Ng2Webstorage
   ],
 
   entryComponents: [CustomModal],
