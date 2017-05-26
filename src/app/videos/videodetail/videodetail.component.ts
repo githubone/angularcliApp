@@ -6,6 +6,7 @@ import { AssetService } from '../../provider/asset.service';
 import { VideoModel} from '../shared/video.model';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { WindowRef } from '../../provider/windowref';
 
 @Component({
   selector: 'app-videodetail',
@@ -22,7 +23,8 @@ export class VideodetailComponent implements OnInit {
               private videoService: VideoService,
                private localStorageService: LocalStorageService,
                private assetService:AssetService,
-               private sanitizer: DomSanitizer
+               private sanitizer: DomSanitizer,
+               private windowref : WindowRef
               ) { }
 
   ngOnInit() {
@@ -52,7 +54,7 @@ export class VideodetailComponent implements OnInit {
   getAssetAsync(assetUrl:string){
       this.assetService.getImage("https://mavestore.blob.core.windows.net/testcontainer/adeleatbbctn.jpg")
           .subscribe((asset)=> {
-             this.imgSourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(asset))
+             this.imgSourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.windowref.nativeWindow.URL.createObjectURL(asset))
           })
   }
 

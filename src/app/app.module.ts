@@ -28,7 +28,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { TestComponent } from './test/test.component';
 import {SpinnerComponent} from './spinner/spinner-component';
 
-import {Ng2Webstorage} from 'ngx-webstorage';
+//import {Ng2Webstorage} from 'ngx-webstorage';
+import {WindowRef} from './provider/windowref';
 
 
 @NgModule({
@@ -58,12 +59,12 @@ import {Ng2Webstorage} from 'ngx-webstorage';
     LocalStorageModule.withConfig({
             prefix: 'my-app',
             storageType: 'localStorage'
-        }),
-        Ng2Webstorage
+        })
+       // Ng2Webstorage
   ],
 
   entryComponents: [CustomModal],
-  providers: [VideoService, LoadingService,AssetService,SpinnerService],
+  providers: [VideoService, LoadingService,AssetService,SpinnerService, WindowRef],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { LoadingService } from '../../provider/loading.service';
 import { VideoService } from '../../provider/video.service';
 import { HttpModule } from '@angular/http';
+import {SpinnerService} from '../../spinner/spinner-service';
 
 describe('VideolistComponent', () => {
   let component: VideolistComponent;
@@ -14,7 +15,7 @@ describe('VideolistComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ VideolistComponent ],
       imports: [RouterModule,RouterTestingModule, HttpModule],
-      providers: [LoadingService,VideoService]
+      providers: [LoadingService,VideoService,SpinnerService]
     })
     .compileComponents();
   }));
