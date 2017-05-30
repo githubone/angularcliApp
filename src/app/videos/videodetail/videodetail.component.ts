@@ -4,7 +4,7 @@ import { ActivatedRoute} from '@angular/router';
 import { VideoService } from '../../provider/video.service';
 import { AssetService } from '../../provider/asset.service';
 import { VideoModel} from '../shared/video.model';
-import { LocalStorageService } from 'angular-2-local-storage';
+//import { LocalStorageService } from 'angular-2-local-storage';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { WindowRef } from '../../provider/windowref';
 
@@ -21,7 +21,7 @@ export class VideodetailComponent implements OnInit {
   constructor(private loadingService: LoadingService, 
               private route: ActivatedRoute,
               private videoService: VideoService,
-               private localStorageService: LocalStorageService,
+               //private localStorageService: LocalStorageService,
                private assetService:AssetService,
                private sanitizer: DomSanitizer,
                private windowref : WindowRef

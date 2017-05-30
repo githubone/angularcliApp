@@ -1,0 +1,26 @@
+[
+{
+     "Sender":"Mave Chan ",
+     "Description": "has sent you an email.",
+     "TimeIndicator": "Two minutes ago",
+     "LogoUrl": "styles/images/avatar.jpg"
+},
+{
+    "Sender":"Mave Chan ",
+     "Description": "started following you.",
+     "Time Indicator": "Yesterday 1:07 pm",
+     "LogoUrl": "styles/images/avatar.jpg"
+},
+{
+      "Sender":"Mave Chan ",
+     "Description": "commented on your Timeline.",
+     "Time Indicator": "23/12 11:01 am",
+     "LogoUrl": "styles/images/avatar.jpg"
+},
+{
+    "Sender":"Mave Chan",
+     "Description": " has posted a new message.",
+     "Time Indicator": "today 1:07 pm",
+     "LogoUrl": "styles/images/avatar.jpg"
+}
+]

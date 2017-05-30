@@ -1,0 +1,3 @@
+1) Fix test via ng test - to do with using window object in windowref
+2) get notification data from json file
+3) deploy to azure (see ref on google search)

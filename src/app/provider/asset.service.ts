@@ -4,13 +4,12 @@ import { Headers,Http, Request,
     RequestMethod, ResponseContentType
 } from '@angular/http';
 import {WindowRef} from './windowref';
-
-//import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
+import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
 
 @Injectable()
 export class AssetService implements OnInit {
     constructor(private http: Http, 
-    //private sessionStorageService: SessionStorageService,
+    private sessionStorageService: SessionStorageService,
     private windowref: WindowRef
     ){
 
@@ -19,7 +18,6 @@ export class AssetService implements OnInit {
         //this.getImage("https://mavestore.blob.core.windows.net/testcontainer/adeleatbbctn.jpg");
     
     }
-
     getImage(serviceUrl:string){
        
         let basicOptions: RequestOptionsArgs = {
@@ -31,7 +29,7 @@ export class AssetService implements OnInit {
         let reqOptions = new RequestOptions(basicOptions);
         return this.http.get(serviceUrl,basicOptions)
         .map(res=> {
-            let asset = this.getAsset(serviceUrl);
+            let asset = this.getStoredAsset(serviceUrl);
             if(asset instanceof this.windowref.nativeWindow.Blob) {
                 return asset;
             } else {
@@ -45,11 +43,11 @@ export class AssetService implements OnInit {
 
     }
     storeAsset(key:string, blob: any):void {
-       //this.sessionStorageService.store(key, JSON.stringify(blob));
+       this.sessionStorageService.store(key, JSON.stringify(blob));
     }
-    getAsset(key:string): any {
-      // return JSON.parse(this.sessionStorageService.retrieve(key));
-      return null;
+    getStoredAsset(key:string): any {
+      return JSON.parse(this.sessionStorageService.retrieve(key));
+      
     }
 }
 

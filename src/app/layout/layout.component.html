@@ -38,15 +38,15 @@
 						<h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> Notification</h2>
 						<a href="#"><i class="fa fa-cog pull-right"></i></a>
 					</div>
-					<ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
-						<li class="notification">
-							<i class="icon-custom icon-sm rounded-x icon-bg-red icon-line icon-envelope"></i>
+					<ul  class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
+						<li *ngFor="let notification of notifications" class="notification">
+							<img class="rounded-x" src={{notification.LogoUrl}} alt="">
 							<div class="overflow-h">
-								<span><strong>Mave Chan</strong> has sent you email.</span>
-								<small>Two minutes ago</small>
+								<span><strong>{{notification.Sender}}</strong>{{notification.Description}}</span>
+								<small>{{notification.TimeIndicator}}</small>
 							</div>
 						</li>
-						<li class="notification">
+						<!--<li class="notification">
 							<img class="rounded-x" src="styles/images/avatar.jpg" alt="">
 							<div class="overflow-h">
 								<span><strong>Mave Chan</strong> started following you.</span>
@@ -80,11 +80,10 @@
 								<span><strong>Mave Chan</strong> changed profile picture.</span>
 								<small>23/12 15:15 pm</small>
 							</div>
-						</li>
+						</li>-->
 					</ul>
 					<!--<button type="button" class="btn-u btn-u-default btn-u-sm btn-block">Load More</button>-->
 					<!--End Notification-->
-
 					<div class="margin-bottom-50"></div>
 
 					<!--Datepicker-->
