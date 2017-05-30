@@ -66,8 +66,7 @@ import {WindowRef} from './provider/windowref';
   ],
 
   entryComponents: [CustomModal],
-  providers: [{
-        provide: Window, useValue: window},
+  providers: [
     VideoService,DataService, LoadingService,AssetService,SpinnerService, WindowRef],
   bootstrap: [AppComponent]
 })

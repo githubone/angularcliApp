@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
+import {HttpModule} from '@angular/http';
 import { LayoutComponent } from './layout.component';
  import { RouterTestingModule } from '@angular/router/testing';
+ import {DataService} from '../provider/data.service';
 
 describe('LayoutComponent', () => {
   let component: LayoutComponent;
@@ -10,7 +12,8 @@ describe('LayoutComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ LayoutComponent ],
-       imports: [RouterModule,RouterTestingModule]
+       imports: [RouterModule,RouterTestingModule, HttpModule],
+       providers: [DataService]
     })
     .compileComponents();
   }));
