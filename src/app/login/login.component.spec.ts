@@ -26,4 +26,17 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display a login form', ()=> {
+     var loginForm = fixture.nativeElement.getElementsByTagName('form');
+     expect(loginForm).toBeTruthy();
+  });
+
+  it('should display name and password on login form',()=> {
+    var loginForm = fixture.nativeElement.getElementsByTagName('form');
+    var nameText = loginForm[0].getElementsByTagName('label')[0].innerText;
+    var passwordText = loginForm[0].getElementsByTagName('label')[1].innerText;
+    expect(nameText).toBe('Name');
+    expect(passwordText).toBe('Password');
+  });
 });

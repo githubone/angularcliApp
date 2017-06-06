@@ -27,4 +27,9 @@ describe('LayoutComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display menus', ()=> {
+    const menus = fixture.nativeElement.getElementsByTagName('ul');
+    expect(menus.length).toBeGreaterThan(0);
+  });
 });
