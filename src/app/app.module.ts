@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import{ Location,LocationStrategy,HashLocationStrategy} from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
@@ -67,7 +68,9 @@ import {WindowRef} from './provider/windowref';
 
   entryComponents: [CustomModal],
   providers: [
-    VideoService,DataService, LoadingService,AssetService,SpinnerService, WindowRef],
+    VideoService,DataService, LoadingService,AssetService,SpinnerService, WindowRef,
+    ],
+  //Location, {provide: LocationStrategy, useClass: HashLocationStrategy}
   bootstrap: [AppComponent]
 })
 export class AppModule { }

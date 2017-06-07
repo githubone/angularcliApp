@@ -10,8 +10,7 @@ const routes: Routes = [
     {path:'video', component: VideoComponent},
     {path:'videoslist/:g', component: VideolistComponent},
     {path:'videodetail/:id', component: VideodetailComponent},
-    {path: 'login', component: LoginComponent},
-    {path: '',  redirectTo: 'welcome', pathMatch: 'full'},
+    {path: 'login', component: LoginComponent}
 ];
 
 export const Routing = RouterModule.forRoot(routes);

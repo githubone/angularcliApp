@@ -4,3 +4,5 @@
 
 https://prmadi.com/running-angular2-app-on-azure-app-services-with-ci-cd/
 
+4) create client to access api protected by identity server
+https://github.com/IdentityModel/oidc-client-js
