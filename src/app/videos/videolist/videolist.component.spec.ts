@@ -14,8 +14,8 @@ describe('VideolistComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ VideolistComponent ],
-      imports: [RouterModule,RouterTestingModule, HttpModule],
-      providers: [LoadingService,VideoService,SpinnerService]
+      imports: [RouterModule, RouterTestingModule, HttpModule],
+      providers: [LoadingService, VideoService, SpinnerService]
     })
     .compileComponents();
   }));

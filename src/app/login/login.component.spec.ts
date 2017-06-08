@@ -11,7 +11,7 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ LoginComponent ],
-      imports: [FormsModule,RouterModule,RouterTestingModule],
+      imports: [FormsModule, RouterModule, RouterTestingModule],
       providers: [LoadingService]
     })
     .compileComponents();
@@ -27,12 +27,12 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display a login form', ()=> {
+  it('should display a login form', () => {
      var loginForm = fixture.nativeElement.getElementsByTagName('form');
      expect(loginForm).toBeTruthy();
   });
 
-  it('should display name and password on login form',()=> {
+  it('should display name and password on login form', () => {
     var loginForm = fixture.nativeElement.getElementsByTagName('form');
     var nameText = loginForm[0].getElementsByTagName('label')[0].innerText;
     var passwordText = loginForm[0].getElementsByTagName('label')[1].innerText;

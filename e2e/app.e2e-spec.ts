@@ -13,6 +13,6 @@ describe('angularcli-app App', () => {
   });
 
   it('should display sign in button', () => {
-    expect(page.getSignInButtonElement()).toEqual("Sign in");
-  })
+    expect(page.getSignInButtonElement()).toEqual('Sign in');
+  });
 });

@@ -12,8 +12,8 @@ describe('WelcomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ WelcomeComponent ],
-       imports: [ModalModule.forRoot(),ModalModule],
-        providers: [Modal,Overlay,LoadingService]
+       imports: [ModalModule.forRoot(), ModalModule],
+        providers: [Modal, Overlay, LoadingService]
     })
     .compileComponents();
   }));

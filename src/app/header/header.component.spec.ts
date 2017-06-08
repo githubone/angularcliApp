@@ -25,12 +25,12 @@ describe('HeaderComponent', () => {
 
   it('should contain links to display videos listing', ()=> {
       //fixture.nativeElement.getElementsByClassName('nav navbar-nav')[0].getElementsByClassName('dropdown')[0].getElementsByTagName('a')[0].innerText
-      var videoLists  = fixture.nativeElement.getElementsByClassName('nav navbar-nav')[0].getElementsByClassName('dropdown');
+      const videoLists  = fixture.nativeElement.getElementsByClassName('nav navbar-nav')[0].getElementsByClassName('dropdown');
       expect(videoLists.length).toBeGreaterThan(0);
   });
 
   it('should contain Home link', ()=> {
-    var menuLinks = fixture.nativeElement.getElementsByClassName('nav navbar-nav')[0].getElementsByClassName('dropdown');
+    const menuLinks = fixture.nativeElement.getElementsByClassName('nav navbar-nav')[0].getElementsByClassName('dropdown');
     expect(menuLinks[0].getElementsByTagName('a')[0].innerText).toBe("Home");
   });
 });

@@ -6,12 +6,12 @@ export class LoadingService {
   private _isLoading: boolean = true;
   private publishLoading= new Subject<boolean>();
   publishLoading$ = this.publishLoading.asObservable();
-  public publishLoadingCommand (input:boolean) {
+  public publishLoadingCommand (input: boolean) {
       this.publishLoading.next(input);
   }
   constructor() { }
 
-  set isLoading(isLoading:boolean){
+  set isLoading(isLoading: boolean){
         this._isLoading = isLoading;
   }
 

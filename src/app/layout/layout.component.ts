@@ -6,6 +6,7 @@ import { DataService } from '../provider/data.service';
 import { NotificationModel } from '../notification/notification.model';
 import * as _ from 'lodash';
 
+
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
