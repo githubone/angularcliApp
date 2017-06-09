@@ -10,7 +10,14 @@ import { Modal } from 'angular2-modal/plugins/bootstrap';
   viewProviders: [Modal]
 })
 export class WelcomeComponent implements OnInit {
-
+   slides = [
+    {caption: "The Piper at the Gates of Dawn"},
+    {caption: "A Saucerful of Secrets"},
+    {caption: "Music from the Film More"},
+    {caption: "Ummagumma"},
+    {caption: "Atom Heart Mother"},
+    {caption: "Meddle"}
+  ];
   constructor(private loadingService:LoadingService,overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal) { 
     overlay.defaultViewContainer = vcRef;
   }
@@ -42,6 +49,14 @@ export class WelcomeComponent implements OnInit {
                 <li>HTML content</li>
             </ul>`)
         .open();
+  }
+
+   addSlide() {
+    this.slides.push({caption: "new one"})
+  }
+
+  removeSlide() {
+    this.slides.length = this.slides.length - 1;
   }
   }
 

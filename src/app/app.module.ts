@@ -32,7 +32,8 @@ import {SpinnerComponent} from './spinner/spinner-component';
 
 import {Ng2Webstorage} from 'ngx-webstorage';
 import {WindowRef} from './provider/windowref';
-
+import { CarouselComponent } from './carousel/carousel.component';
+import { CarouselItem } from './carousel/carousel.directive';
 
 
 @NgModule({
@@ -49,7 +50,9 @@ import {WindowRef} from './provider/windowref';
     LoginComponent,
     LayoutComponent,
     TestComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CarouselComponent,
+    CarouselItem
   ],
   imports: [
     BrowserModule,
