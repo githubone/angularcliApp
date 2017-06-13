@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogRef, ModalComponent, CloseGuard } from 'angular2-modal';
+//import { DialogRef } from 'angular2-modal/esm/models/dialog-ref';
 import { BSModalContext } from 'angular2-modal/plugins/bootstrap/index';
 import { Router } from '@angular/router';
 

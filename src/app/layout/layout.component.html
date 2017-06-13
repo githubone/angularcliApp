@@ -5,7 +5,7 @@
 				  <h2 class="heading-xs pull-left"><i class="fa fa-bars"></i>Genres</h2>
 						<a href="#"><i class="fa fa-cog pull-right"></i></a>
 
-						<ul *ngFor="let menu of menus" class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+						<ul *ngFor="let menu of menus" class="list-group sidebar-nav-v1 margin-bottom-40" >
 						<li class="list-group-item active">
 							<a routerLink="{{menu.url}}"><i class="{{menu.cssClass}}"></i> {{menu.name}}</a>
 						</li>
