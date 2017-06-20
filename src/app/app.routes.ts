@@ -4,13 +4,16 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { VideolistComponent } from './videos/videolist/videolist.component';
 import { VideodetailComponent } from './videos/videodetail/videodetail.component';
 import { LoginComponent } from './login/login.component';
+import { TestComponent} from './test/test.component';
+
 
 const routes: Routes = [
     {path:'welcome', component: WelcomeComponent},
     {path:'video', component: VideoComponent},
     {path:'videoslist/:g', component: VideolistComponent},
     {path:'videodetail/:id', component: VideodetailComponent},
-    {path: 'login', component: LoginComponent}
+    {path: 'login', component: LoginComponent},
+     {path: 'test', component: TestComponent}
 ];
 
 export const Routing = RouterModule.forRoot(routes);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NodetsapiclientService } from '../provider/nodetsapiclient.service';
 
 @Component({
   selector: 'app-test',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  constructor() { }
+  constructor(private clientService:NodetsapiclientService ) { }
 
   ngOnInit() {
+     this.testService();
+  }
+  testService() {
+    this.clientService.get("http://localhost:5555/db")
+    .subscribe((res)=> {
+      console.log(res);
+    })
   }
 
 }

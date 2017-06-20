@@ -27,7 +27,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
 
    ngOnInit() {
-     this.showCustomModal();
+     //this.showCustomModal();
       // this.router.navigateByUrl('/login');
   }
 

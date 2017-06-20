@@ -14,6 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { VideoComponent } from './videos/video/video.component';
 import { VideoService } from './provider/video.service';
+import { NodetsapiclientService } from './provider/nodetsapiclient.service';
 import { AssetService } from './provider/asset.service';
 import { LoadingService } from './provider/loading.service';
 import { DataService } from './provider/data.service';
@@ -35,6 +36,7 @@ import {WindowRef} from './provider/windowref';
 
 
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -50,6 +52,7 @@ import {WindowRef} from './provider/windowref';
     LayoutComponent,
     TestComponent,
     SpinnerComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,7 @@ import {WindowRef} from './provider/windowref';
 
   entryComponents: [CustomModal],
   providers: [
-    VideoService,DataService, LoadingService,AssetService,SpinnerService, WindowRef,
+    VideoService,DataService, LoadingService,AssetService,SpinnerService, WindowRef,NodetsapiclientService,
     ],
   //Location, {provide: LocationStrategy, useClass: HashLocationStrategy}
   bootstrap: [AppComponent]
