@@ -6,6 +6,7 @@ import { Router,Event } from '@angular/router';
 import { Overlay,overlayConfigFactory  } from 'angular2-modal';
 import { CustomModal } from './customloginmodal/customloginmodal.component';
 import {SpinnerComponent} from './spinner/spinner-component';
+import { BroadcasterService} from './provider/broadcaster.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,9 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   constructor( private loadingService: LoadingService, 
       private router: Router,overlay: Overlay, vcRef: ViewContainerRef,
-      public modal: Modal ){
+      public modal: Modal,
+      private broadcaster:BroadcasterService
+       ){
         overlay.defaultViewContainer = vcRef;
         loadingService.publishLoading$.subscribe((loadFlag)=> {
         this.loading = loadFlag;
@@ -30,10 +33,20 @@ export class AppComponent implements AfterViewInit, OnInit {
    ngOnInit() {
      //this.showCustomModal();
       // this.router.navigateByUrl('/login');
+      this.subscribeBroadcast();
+      
   }
 
   ngAfterViewInit() {}
 
+  subscribeBroadcast() {
+    this.broadcaster.on<boolean>("UserLogin")
+      .subscribe(data=> {
+        if(data){
+          this.IsLogin = data;  
+        }
+      })
+  }
   showCustomModal() {
       this.modal.open(CustomModal, overlayConfigFactory({ userName: 'mave.chan@yeah.com', password: 'mypassword' }))
   }

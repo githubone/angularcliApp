@@ -2,6 +2,7 @@ import { Component, OnInit,AfterViewInit, ViewChild,ElementRef } from '@angular/
 import { LoginModel, EmailModel } from './login.model';
 import { LoadingService } from '../provider/loading.service';
 import { Router } from '@angular/router';
+import { BroadcasterService} from '../provider/broadcaster.service';
 
 @Component({
   selector: 'login-form',
@@ -12,15 +13,10 @@ export class LoginComponent implements OnInit {
 
   model = new LoginModel(1,"tester","password", "");
   submitted: boolean = false;
-
- 
   emails:EmailModel[] = [] ;
-  
   @ViewChild('email') email: ElementRef
   
-  constructor(public loadingService: LoadingService,public router: Router) {
-    
-   }
+  constructor(public loadingService: LoadingService,public router: Router,private broadcaster:BroadcasterService) {}
 
   ngOnInit() {
  
@@ -30,23 +26,14 @@ export class LoginComponent implements OnInit {
     this.emails.push(new EmailModel("c@c.com","c@c.com"))
     this.loadingService.publishLoadingCommand(false)  
 }
-  ngAfterViewInit(){
-      // error - nativeElement undefined
-      //console.log(this.email.nativeElement.value);
-  }
-
-
-  onSubmit(){
-    //this.submitted = true;
-    this.router.navigateByUrl('video');  
-  }
+  ngAfterViewInit(){}
 
   createLogin(){
     this.model = new LoginModel(1,"tester","password", "test@test.com");
   }
 
   login(){
-    this.router.navigateByUrl("/video")
+    this.broadcaster.broadcast("UserLogin", true);
   }
 
 }
