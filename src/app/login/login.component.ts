@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   model = new LoginModel(1,"tester","password", "");
   submitted: boolean = false;
+
  
   emails:EmailModel[] = [] ;
   
@@ -36,7 +37,8 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit(){
-    this.submitted = true;
+    //this.submitted = true;
+    this.router.navigateByUrl('video');  
   }
 
   createLogin(){
@@ -44,7 +46,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.router.navigateByUrl('/videoslist');
+    this.router.navigateByUrl("/video")
   }
 
 }

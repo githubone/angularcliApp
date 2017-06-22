@@ -16,6 +16,7 @@ import {SpinnerComponent} from './spinner/spinner-component';
 export class AppComponent implements AfterViewInit, OnInit {
   loading: boolean = true;
   title = 'app works!';
+  IsLogin= false;
 
   constructor( private loadingService: LoadingService, 
       private router: Router,overlay: Overlay, vcRef: ViewContainerRef,
