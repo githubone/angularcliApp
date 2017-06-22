@@ -24,12 +24,16 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
+    border-radius: 4px;
 }
-
-button.btnSearch:hover {
+button.btnSearch {
+    height: 34px;
+    
+}
+button:hover, button.btnSearch:hover {
     background-color: #6B094E;
-    opacity:  1!important;
-    color: #fff; 
+    opacity:  0.5!important;
+    color: #fff;
 }
 
 button.btnSearch {

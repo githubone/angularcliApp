@@ -2,7 +2,7 @@
 <div class="row">
   
 	<div class="col-lg-12">
-    <button *ngIf="pageTitle.length>0" class="btnSearch" type="button">{{pageTitle}}</button>
+    <button *ngIf="pageTitle.length>0" type="button">{{pageTitle}}</button>
 		<div class="input-group">
       <input #tbSearch id="tbSearch" (keyup)="search($event.target.value)" type="text" class="form-control" placeholder="Search for...">
       <div class="input-group-btn">
