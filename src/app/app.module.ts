@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import{ Location,LocationStrategy,HashLocationStrategy} from '@angular/common';
+import{ Location,LocationStrategy,HashLocationStrategy } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
@@ -28,9 +28,9 @@ import { CustomModal } from './customloginmodal/customloginmodal.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { TestComponent } from './test/test.component';
-import {SpinnerComponent} from './spinner/spinner-component';
-import {Ng2Webstorage} from 'ngx-webstorage';
-import {WindowRef} from './provider/windowref';
+import { SpinnerComponent } from './spinner/spinner-component';
+import { Ng2Webstorage } from 'ngx-webstorage';
+import { WindowRef } from './provider/windowref';
 
 @NgModule({
   declarations: [

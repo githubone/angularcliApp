@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewContainerRef, OnInit} from '@angular/core';
+import { ChangeDetectorRef,Component, AfterViewInit, ViewContainerRef, OnInit} from '@angular/core';
 import { LoadingService } from './provider/loading.service';
 import { VideoService } from './provider/video.service';
 import { Modal  } from 'angular2-modal/plugins/bootstrap';
@@ -7,6 +7,7 @@ import { Overlay,overlayConfigFactory  } from 'angular2-modal';
 import { CustomModal } from './customloginmodal/customloginmodal.component';
 import {SpinnerComponent} from './spinner/spinner-component';
 import { BroadcasterService} from './provider/broadcaster.service';
+import { LOGIN_CONFIG} from './config/login.config';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ export class AppComponent implements AfterViewInit, OnInit {
   constructor( private loadingService: LoadingService, 
       private router: Router,overlay: Overlay, vcRef: ViewContainerRef,
       public modal: Modal,
-      private broadcaster:BroadcasterService
+      private broadcaster:BroadcasterService,
+      private cdRef: ChangeDetectorRef
        ){
         overlay.defaultViewContainer = vcRef;
         loadingService.publishLoading$.subscribe((loadFlag)=> {
@@ -31,22 +33,26 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
 
    ngOnInit() {
-     //this.showCustomModal();
+      //this.showCustomModal();
       // this.router.navigateByUrl('/login');
       this.subscribeBroadcast();
-      
   }
 
   ngAfterViewInit() {}
 
   subscribeBroadcast() {
-    this.broadcaster.on<boolean>("UserLogin")
-      .subscribe(data=> {
+    this.broadcaster.on<boolean>(LOGIN_CONFIG.userKey)
+      .subscribe(data=> 
+      {
         if(data){
-          this.IsLogin = data;  
+          this.IsLogin = data; 
         }
       })
+      // work around for error:ExpressionChangedAfterItHasBeenCheckedError
+      //https://github.com/angular/angular/issues/14748
+      this.cdRef.detectChanges();
   }
+
   showCustomModal() {
       this.modal.open(CustomModal, overlayConfigFactory({ userName: 'mave.chan@yeah.com', password: 'mypassword' }))
   }
