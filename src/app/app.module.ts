@@ -31,6 +31,9 @@ import { TestComponent } from './test/test.component';
 import { SpinnerComponent } from './spinner/spinner-component';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { WindowRef } from './provider/windowref';
+import { CallbackComponent } from './callback/callback.component';
+import { Nodetsapiauth0clientService } from './provider/nodetsapiauth0client.service';
+import { Auth0loginComponent } from './auth0login/auth0login.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,9 @@ import { WindowRef } from './provider/windowref';
     LoginComponent,
     LayoutComponent,
     TestComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CallbackComponent,
+    Auth0loginComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +71,7 @@ import { WindowRef } from './provider/windowref';
   entryComponents: [CustomModal],
   providers: [
     VideoService,DataService, LoadingService,AssetService,SpinnerService, WindowRef,NodetsapiclientService,
-    BroadcasterService
+    BroadcasterService,Nodetsapiauth0clientService
     ],
   //Location, {provide: LocationStrategy, useClass: HashLocationStrategy}
   bootstrap: [AppComponent]

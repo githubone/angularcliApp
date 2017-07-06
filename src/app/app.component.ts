@@ -1,4 +1,4 @@
-import { ChangeDetectorRef,Component, AfterViewInit, ViewContainerRef, OnInit} from '@angular/core';
+import { ChangeDetectorRef,Component,HostListener,AfterViewInit, ViewContainerRef, OnInit} from '@angular/core';
 import { LoadingService } from './provider/loading.service';
 import { VideoService } from './provider/video.service';
 import { Modal  } from 'angular2-modal/plugins/bootstrap';
@@ -16,6 +16,12 @@ import { LOGIN_CONFIG} from './config/login.config';
   viewProviders: [LoadingService, VideoService,Modal,CustomModal]
 })
 export class AppComponent implements AfterViewInit, OnInit {
+@HostListener('window:beforeunload', ['$event'])
+public execBeforeUnload($event) {
+    // $event.preventDefault(); 
+    return false;
+}
+    
   loading: boolean = true;
   title = 'app works!';
   IsLogin= false;

@@ -1,11 +1,12 @@
 
-<!--<alert type="success">hello</alert>-->
+    <!--<alert type="success">hello</alert>-->
 
 	<!--<div class="container content profile">-->
     <spinner-component></spinner-component>
-   <login-form *ngIf="!IsLogin" ></login-form>
-   <app-header *ngIf="IsLogin" ></app-header>
-   <app-layout *ngIf="IsLogin" ></app-layout>
+    <!--<login-form *ngIf="!IsLogin" ></login-form>-->
+    <app-auth0login  *ngIf="!IsLogin"></app-auth0login>
+    <app-header *ngIf="IsLogin" ></app-header>
+    <app-layout *ngIf="IsLogin" ></app-layout>
    
    <!--<app-sidemenu></app-sidemenu>-->
    <!--<router-outlet></router-outlet>-->
