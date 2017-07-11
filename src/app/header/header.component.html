@@ -6,6 +6,13 @@
 					<img src="styles/images/logobbc-dark.png" alt="Logo">
 				</a>
 				<!-- End Logo -->
+				
+				<div class="topbar">
+					<ul class="loginbar pull-right">
+						<li *ngIf="!loginStatus" ><a href="page_login.html">Login</a></li>
+						<li *ngIf="loginStatus" ><a href="page_login.html"><i class="loginStatus fa fa-sign-out" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
 
 				<!-- Topbar -->
 				<!--<div class="topbar">

@@ -5,9 +5,9 @@
     <spinner-component></spinner-component>
     <!--<login-form *ngIf="!IsLogin" ></login-form>-->
     <app-auth0login  *ngIf="!IsLogin"></app-auth0login>
-    <app-header *ngIf="IsLogin" ></app-header>
+    <app-header *ngIf="IsLogin" [loginStatus]="IsLogin"></app-header>
     <app-layout *ngIf="IsLogin" ></app-layout>
-   
+
    <!--<app-sidemenu></app-sidemenu>-->
    <!--<router-outlet></router-outlet>-->
    <!--<app-footer></app-footer>-->

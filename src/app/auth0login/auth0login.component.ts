@@ -21,32 +21,42 @@ export class Auth0loginComponent implements OnInit {
             { }
 
   ngOnInit() {
-    if (location.hash.length > 0) {
+    let auth0Login = this.sessionStorage.retrieve(LOGIN_CONFIG.userKey);
+    if(auth0Login == null){
+          if (location.hash.length > 0) {
+             this.handleInitForAuth0Callback();
+          } else {
+             this.handleInitForNotLoginAuth0();
+        }
+    } else {
+      this.handleInitForAlreadyLoginAuth0(auth0Login);
+    }
+   
+  }
+
+  handleInitForNotLoginAuth0(){
+     this.userMessage = "You are NOT authenticated and will be redirected to the login page";
+     this.authService.login();
+  }
+
+  handleInitForAuth0Callback() {
       console.log('call back from auth0');
       this.userMessage = "You are authenticated. Please wait for the page to load..";
       this.auth0Hash = location.hash;
-      this.handleAuth0Info();
-    } else {
-      this.userMessage = "You are NOT authenticated and will be redirected to the login page";
-      this.authService.login();
-    }
+      this.processAuth0Login();
   }
 
-  // login() {
-  //   this.authService.login();
-  // }
+  handleInitForAlreadyLoginAuth0(auth0Login:any){
+     this.broadcastAuth0Login(auth0Login);
+  }
 
-  handleAuth0Info(){
-    debugger;
-    let auth0Login = this.sessionStorage.retrieve(LOGIN_CONFIG.userKey);
-    if(auth0Login != null){
-      this.broadcastAuth0Login(auth0Login);
-      
-    } else {
-      auth0Login = this.extractAuth0Login();
+  processAuth0Login(){
+      //extract
+      let auth0Login = this.extractAuth0Login();
+      // store
       this.sessionStorage.store(LOGIN_CONFIG.userKey, auth0Login);
+      // broadcast
       this.broadcastAuth0Login(auth0Login);
-    }
   }
 
   broadcastAuth0Login(isAuth0Login:boolean){
