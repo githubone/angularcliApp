@@ -74,8 +74,7 @@ body.dark .header.header-v1 {
 
 /*Topbar*/
 body.dark .topbar ul.loginbar li i.fa {
-	color: red;
-	font-size: 48px;	
+	color:#999;	
 }
 
 body.dark .topbar ul.loginbar > li > a {

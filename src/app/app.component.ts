@@ -18,7 +18,7 @@ import { LOGIN_CONFIG} from './config/login.config';
 export class AppComponent implements AfterViewInit, OnInit {
 @HostListener('window:beforeunload', ['$event'])
 public execBeforeUnload($event) {
-    // $event.preventDefault(); 
+    //$event.preventDefault(); 
     return false;
 }
     
@@ -41,6 +41,7 @@ public execBeforeUnload($event) {
    ngOnInit() {
       //this.showCustomModal();
       // this.router.navigateByUrl('/login');
+     // window.location.hash = '';
       this.subscribeBroadcast();
   }
 

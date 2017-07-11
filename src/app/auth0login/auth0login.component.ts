@@ -3,7 +3,6 @@ import { Nodetsapiauth0clientService }  from '../provider/nodetsapiauth0client.s
 //https://github.com/angular/angular/blob/4.1.x/packages/common/src/location/location.ts
 import { Location } from '@angular/common';
 import { BroadcasterService} from '../provider/broadcaster.service';
-import { SessionStorageService } from 'ngx-webstorage';
 import { LOGIN_CONFIG } from '../config/login.config';
 
 @Component({
@@ -16,33 +15,34 @@ export class Auth0loginComponent implements OnInit {
   userMessage:string;
   constructor(private location: Location,
             private authService: Nodetsapiauth0clientService,
-            private broadcaster: BroadcasterService,
-            private sessionStorage : SessionStorageService)
+            private broadcaster: BroadcasterService
+            )
             { }
 
   ngOnInit() {
-    let auth0Login = this.sessionStorage.retrieve(LOGIN_CONFIG.userKey);
-    if(auth0Login == null){
+    let auth0Login = this.authService.isAuthenticated();
+
+    if(!auth0Login){
           if (location.hash.length > 0) {
              this.handleInitForAuth0Callback();
           } else {
              this.handleInitForNotLoginAuth0();
         }
     } else {
+       if (location.hash.length > 0) {
+             this.handleInitForAuth0Callback();
+       } 
       this.handleInitForAlreadyLoginAuth0(auth0Login);
     }
    
   }
-
   handleInitForNotLoginAuth0(){
      this.userMessage = "You are NOT authenticated and will be redirected to the login page";
      this.authService.login();
   }
 
   handleInitForAuth0Callback() {
-      console.log('call back from auth0');
       this.userMessage = "You are authenticated. Please wait for the page to load..";
-      this.auth0Hash = location.hash;
       this.processAuth0Login();
   }
 
@@ -51,24 +51,12 @@ export class Auth0loginComponent implements OnInit {
   }
 
   processAuth0Login(){
-      //extract
-      let auth0Login = this.extractAuth0Login();
-      // store
-      this.sessionStorage.store(LOGIN_CONFIG.userKey, auth0Login);
-      // broadcast
-      this.broadcastAuth0Login(auth0Login);
+      // this methods extracts token info and persist them into session storage
+      this.authService.extractAuth0Login();
+      this.broadcastAuth0Login(true);
   }
-
   broadcastAuth0Login(isAuth0Login:boolean){
       this.broadcaster.broadcast(LOGIN_CONFIG.userKey,isAuth0Login);
   }
-
-  extractAuth0Login(){
-     // use this.auth0Hash
-     // TO DO: extract info from hash string
-     return this.auth0Hash.length > 0;
-  }
-
   
-
 }

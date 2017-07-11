@@ -31,8 +31,8 @@ export class LayoutComponent implements OnInit {
       new LayoutModel("TV!!", "fa fa-bar-chart-o", "/videoslist/" + VideoType.tv),
       new LayoutModel("Music", "fa fa-group","/videoslist/" + VideoType.music),
       new LayoutModel("Comedy", "fa fa-cubes", "/videoslist/" + VideoType.comedy),
-      new LayoutModel("Documentary", "fa fa-comments ","/videoslist/" + VideoType.documentary),
-      new LayoutModel("Test", "fa fa-comments ","/test"));
+      new LayoutModel("Documentary", "fa fa-comments ","/videoslist/" + VideoType.documentary));
+      //new LayoutModel("Test", "fa fa-comments ","/test"));
 
   }
   getNotifications() {
